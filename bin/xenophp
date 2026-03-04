@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+if ($argc < 3 || $argv[1] !== 'new') {
+    echo "XenoPHP Installer\n";
+    echo "Usage: xenophp new <project-name>\n";
+    exit(1);
+}
+
+$projectName = $argv[2];
+
+echo "Creating a new XenoPHP application: $projectName\n\n";
+
+$command = "composer create-project xenophp/xenophp \"$projectName\"";
+passthru($command, $status);
+
+if ($status === 0) {
+    echo "\nApplication ready! Build something amazing.\n";
+} else {
+    echo "\nInstallation failed.\n";
+    exit($status);
+}
