@@ -1,0 +1,15 @@
+name: Update Packagist
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  update-packagist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Packagist API
+        run: |
+          curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=Asadullah-nadeem&apiToken=1f327e9f809e6f6221474cfa2c5a975304275d54' -d'{"repository":{"url":"https://packagist.org/packages/xenophp/xeno"}}'
