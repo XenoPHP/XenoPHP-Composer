@@ -1,5 +1,5 @@
 {
-  "name": "xenophp/xenophp",
+  "name": "xenophp/xeno",
   "description": "Framework for XenoPHP Composer",
   "type": "library",
   "license": "MIT",
@@ -36,4 +36,5 @@
     }
   }
 }
+
 
