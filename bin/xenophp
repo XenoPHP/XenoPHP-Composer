@@ -15,6 +15,19 @@ $command = "composer global require xenophp/xenophp \"$projectName\"";
 passthru($command, $status);
 
 if ($status === 0) {
+    $appPhpPath = getcwd() . DIRECTORY_SEPARATOR . $projectName . DIRECTORY_SEPARATOR . 'bootstrap' . DIRECTORY_SEPARATOR . 'app.php';
+    if (file_exists($appPhpPath)) {
+        $appPhpContent = file_get_contents($appPhpPath);
+        $appPhpContent = str_replace('vendor/xenophp/xenophp/Routes', 'vendor/xenophp/xeno/Routes', $appPhpContent);
+        file_put_contents($appPhpPath, $appPhpContent);
+    }
+
+    echo "\nRunning post-install setup...\n";
+    chdir(getcwd() . DIRECTORY_SEPARATOR . $projectName);
+    passthru("composer run-script post-root-package-install", $status1);
+    passthru("composer run-script post-create-project-cmd", $status2);
+    passthru("composer run-script post-autoload-dump", $status3);
+
     echo "\nApplication ready! Build something amazing.\n";
 } else {
     echo "\nInstallation failed.\n";
