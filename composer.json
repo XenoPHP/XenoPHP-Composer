@@ -1,0 +1,39 @@
+{
+  "name": "xenophp/xenophp",
+  "description": "Framework for XenoPHP Composer",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Asadullah Nadeem",
+      "homepage": "https://github.com/Asadullah-nadeem",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "docs": "https://in.linkedin.com/in/asadullah-nadeem",
+    "source": "https://github.com/Asadullah-nadeem"
+  },
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^12.0",
+    "symfony/yaml": "^6.4",
+    "workerman/phpsocket.io": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": ""
+    },
+    "files": [
+      "Helpers/Common.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Core\\Providers\\AppServiceProvider"
+      ]
+    }
+  }
+}
+
