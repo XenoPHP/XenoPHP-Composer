@@ -11,7 +11,7 @@ $projectName = $argv[2];
 
 echo "Creating a new XenoPHP application: $projectName\n\n";
 
-$command = "composer create-project xenophp/xenophp \"$projectName\"";
+$command = "composer create-project xenophp/xenophp \"$projectName\" --no-scripts";
 passthru($command, $status);
 
 if ($status === 0) {
@@ -26,7 +26,7 @@ if ($status === 0) {
     chdir(getcwd() . DIRECTORY_SEPARATOR . $projectName);
     passthru("composer run-script post-root-package-install", $status1);
     passthru("composer run-script post-create-project-cmd", $status2);
-    passthru("composer run-script post-autoload-dump", $status3);
+    passthru("composer dump-autoload", $status3);
 
     echo "\nApplication ready! Build something amazing.\n";
 } else {
