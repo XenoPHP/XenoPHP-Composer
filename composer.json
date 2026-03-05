@@ -36,5 +36,8 @@
         "Core\\Providers\\AppServiceProvider"
       ]
     }
-  }
+  },
+  "bin": [
+    "bin/xenophp"
+  ]
 }

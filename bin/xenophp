@@ -11,7 +11,7 @@ $projectName = $argv[2];
 
 echo "Creating a new XenoPHP application: $projectName\n\n";
 
-$command = "composer global require xenophp/xenophp \"$projectName\"";
+$command = "composer create-project xenophp/xenophp \"$projectName\"";
 passthru($command, $status);
 
 if ($status === 0) {
